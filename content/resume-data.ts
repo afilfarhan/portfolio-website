@@ -5,7 +5,7 @@ export const contact = {
   phone: "+966 557337857",
   location: "Riyadh, Saudi Arabia",
   github: "https://github.com/afilfarhan",
-  resumePdf: "/resume.pdf",
+  resumePdf: "/Afil%20Farhan%20Resume.pdf",
 }
 
 export const summary =
