@@ -88,7 +88,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: "Tools & IDEs",
-    skills: ["Git", "VS Code", "Furhat SDK", "NVIDIA NIM"],
+    skills: ["Git", "VS Code", "Furhat SDK", "NVIDIA NIM", "Claude Code", "cursor"],
   },
   {
     category: "Web Technologies",
@@ -127,8 +127,8 @@ export const projects: Project[] = [
   {
     title: "marcazi.com RAG Chatbot",
     description:
-      "Production-grade RAG chatbot for a digital commerce marketplace: ReAct agent architecture, Redis caching, anti-hallucination guardrails, and real-time product discovery.",
-    tags: ["LangChain", "ReAct", "Redis", "RAG"],
+      "Production-grade digital commerce marketplace: ReAct agent architecture, Redis caching, anti-hallucination guardrails, and real-time product discovery.",
+    tags: ["ReAct", "Redis","Postgres"],
     live: "https://marcazi.com",
     badge: "production",
   },
@@ -140,7 +140,7 @@ export const projects: Project[] = [
     badge: "no backend / on-device",
   },
   {
-    title: "AI Resume Builder",
+    title: "AI Template Builder",
     description:
       "Five-agent generation pipeline built on NVIDIA NIM with anti-hallucination constraints.",
     tags: ["NVIDIA NIM", "Multi-agent", "Python"],
