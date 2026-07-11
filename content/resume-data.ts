@@ -125,7 +125,7 @@ export const projects: Project[] = [
     github: "https://github.com/afilfarhan/myagenticai",
   },
   {
-    title: "marcazi.com RAG Chatbot",
+    title: "marcazi.com",
     description:
       "Production-grade digital commerce marketplace: ReAct agent architecture, Redis caching, anti-hallucination guardrails, and real-time product discovery.",
     tags: ["ReAct", "Redis","Postgres"],

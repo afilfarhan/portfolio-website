@@ -1,35 +1,51 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { useReducedMotion } from "framer-motion"
 import { ExternalLink } from "lucide-react"
 import { GithubIcon } from "@/components/icons/github-icon"
 import { SectionHeading } from "@/components/section-heading"
 import { projects, type Project } from "@/content/resume-data"
 
+function useIsTouchDevice() {
+const [isTouch, setIsTouch] = useState(false)
+useEffect(() => {
+const mq = window.matchMedia("(pointer: coarse)")
+setIsTouch(mq.matches)
+const handler = (e: MediaQueryListEvent) => setIsTouch(e.matches)
+mq.addEventListener("change", handler)
+return () => mq.removeEventListener("change", handler)
+}, [])
+return isTouch
+}
+
 function TiltCard({ project }: { project: Project }) {
-  const cardRef = useRef<HTMLElement>(null)
-  const prefersReducedMotion = useReducedMotion()
-  const [transform, setTransform] = useState("")
+const cardRef = useRef<HTMLElement>(null)
+const prefersReducedMotion = useReducedMotion()
+const isTouch = useIsTouchDevice()
+const [transform, setTransform] = useState("")
+const handleMove = useCallback(
+(e: React.MouseEvent) => {
+if (prefersReducedMotion || isTouch || !cardRef.current) return
+const rect = cardRef.current.getBoundingClientRect()
+const x = (e.clientX - rect.left) / rect.width - 0.5
+const y = (e.clientY - rect.top) / rect.height - 0.5
+setTransform(
+`perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg) translateZ(4px)`,
+)
+},
+[prefersReducedMotion, isTouch],
+)
+const handleLeave = useCallback(() => setTransform(""), [])
 
-  const handleMove = (e: React.MouseEvent) => {
-    if (prefersReducedMotion || !cardRef.current) return
-    const rect = cardRef.current.getBoundingClientRect()
-    const x = (e.clientX - rect.left) / rect.width - 0.5
-    const y = (e.clientY - rect.top) / rect.height - 0.5
-    setTransform(
-      `perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg) translateZ(4px)`,
-    )
-  }
-
-  return (
-    <article
-      ref={cardRef}
-      onMouseMove={handleMove}
-      onMouseLeave={() => setTransform("")}
-      style={{ transform, transformStyle: "preserve-3d" }}
-      className="group flex flex-col rounded-xl border border-border bg-card/50 p-6 backdrop-blur-sm transition-[transform,border-color] duration-200 ease-out hover:border-primary/40"
-    >
+return (
+<article
+ref={cardRef}
+onMouseMove={handleMove}
+onMouseLeave={handleLeave}
+style={{ transform, transformStyle: "preserve-3d" }}
+className="group flex flex-col rounded-xl border border-border bg-card/50 p-5 backdrop-blur-sm transition-[border-color] duration-200 ease-out active:border-primary/40 hover:border-primary/40"
+>
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-lg font-semibold">{project.title}</h3>
         {project.badge && (
