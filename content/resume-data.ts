@@ -21,14 +21,14 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    role: "Cloud Engineer",
+    role: "Full Stack Engineer",
     company: "Bejoice Shipping L.L.C",
     location: "Dammam, KSA",
     period: "Jan 2025 – Jun 2026",
     highlights: [
-      "Built ETL/ELT pipelines and data quality frameworks",
-      "Implemented GDPR-aligned data validation",
-      "Automated workflows and optimized query performance",
+      "Architected and deployed 5+ robust Java Spring Boot REST APIs, successfully integrating with 3 enterprise systems (including SAP/CRM) to process over 50,000 daily data transactions with 99.9% uptime.",
+      "Optimized complex SQL queries and refactored backend business logic within a legacy codebase, reducing average API response latency by 40% (from 800ms to 480ms) and supporting a concurrent user base of 10,000+ users.",
+      "Engineered real-time, bidirectional communication channels using WebSockets for an AI-driven conversational interface, supporting 2,000+ simultaneous connections while utilizing Docker and CI/CD pipelines to reduce deployment time by 30%.",
     ],
   },
   {
