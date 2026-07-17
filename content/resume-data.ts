@@ -26,9 +26,9 @@ export const experience: Experience[] = [
     location: "Dammam, KSA",
     period: "Jan 2025 – Jun 2026",
     highlights: [
-      "Architected and deployed 5+ robust Java Spring Boot REST APIs, successfully integrating with 3 enterprise systems (including SAP/CRM) to process over 50,000 daily data transactions with 99.9% uptime.",
-      "Optimized complex SQL queries and refactored backend business logic within a legacy codebase, reducing average API response latency by 40% (from 800ms to 480ms) and supporting a concurrent user base of 10,000+ users.",
-      "Engineered real-time, bidirectional communication channels using WebSockets for an AI-driven conversational interface, supporting 2,000+ simultaneous connections while utilizing Docker and CI/CD pipelines to reduce deployment time by 30%.",
+      "Architected 5+ Spring Boot REST APIs integrating SAP/CRM + 2 enterprise systems — 50K+ daily transactions, 99.9% uptime.",
+      "Cut API latency 40% (800ms → 480ms) via SQL optimization & legacy refactor, supporting 10K+ concurrent users.",
+      "Built WebSocket infrastructure for AI conversational interface (2K+ simultaneous connections); reduced deploy time 30% with Docker/CI/CD.",
     ],
   },
   {
