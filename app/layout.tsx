@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+import StarfieldBackground from '@/app/components/StarfieldBackgroundClient'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -61,7 +62,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`bg-background dark ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased">
-        {children}
+        <StarfieldBackground />
+        <main style={{ position: 'relative', zIndex: 1 }}>
+          {children}
+        </main>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
