@@ -35,7 +35,7 @@ export const experience: Experience[] = [
     role: "AI Engineer",
     company: "Optima Partners",
     location: "Scotland, UK",
-    period: "Sep 2023 – Dec 2024",
+    period: "Sep 2022 – Dec 2024",
     highlights: [
       "Built multi-agent LLM systems with LangChain",
       "Shipped production RAG pipelines with vector databases",
